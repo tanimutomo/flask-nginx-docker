@@ -6,11 +6,15 @@ jobs:
     steps: 
     - name: checkout
       uses: actions/checkout@master
-    - name: lint
+    - name: lint flask/Dockerfile
       uses: luke142367/Docker-Lint-Action@v1.0.0
       with:
-        target: 
-          - ./flask/Dockerfile
-          - ./nginx/Dockerfile
+        target: ./flask/Dockerfile
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: lint nginx/Dockerfile
+      uses: luke142367/Docker-Lint-Action@v1.0.0
+      with:
+        target: ./nginx/Dockerfile
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
