@@ -1,4 +1,4 @@
-name: Lint
+name: DockerLint
 on: [push]
 jobs:
   lint:
